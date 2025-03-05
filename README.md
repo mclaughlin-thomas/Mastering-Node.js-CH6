@@ -12,4 +12,7 @@ Errata:
 Should be 
 "In this chapter, I will continue to use the webapp project created in Chapter 4 and modified in Chapter 5."
 
+
+Updated to Ch5 proj
+With the updated server.ts and handler.ts, the Express router filters out the favicon request and passes on all other HTTP get reqs to our function basicHandler
 Pickup 267
