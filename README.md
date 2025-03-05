@@ -14,5 +14,8 @@ Should be
 
 
 Updated to Ch5 proj
-With the updated server.ts and handler.ts, the Express router filters out the favicon request and passes on all other HTTP get reqs to our function basicHandler
-Pickup 267
+With the updated server.ts and handler.ts, the Express router filters out the favicon request and passes on all other HTTP get reqs to our function basicHandler.
+
+That handler uses Node.js IncomingMessage and ServerResponse types even though Express is used to route the requests.
+
+Pickup 267: Understanding Streams
