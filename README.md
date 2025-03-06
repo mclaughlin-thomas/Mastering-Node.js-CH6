@@ -55,3 +55,11 @@ Writable class also emits events...
 
 The basic approach to using a writable stream is to call the write method until all of the data has been sent to the stream and then call the end method.. Check handler.ts
 
+It is easy to think of the endpoint of the steream as being a straight pipe to the web browser, but that is rarely the case!!!
+
+"The endpoint for most streams is the part of the Node.js API
+that interfaces with the operating system, in this case, the code that deals with
+the operating system’s network stack to send and receive data. This indirectrelationship leads to important considerations, as described in the sections that follow."
+
+## Understanding Stream Enhancements
+Page 275
