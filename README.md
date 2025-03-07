@@ -114,3 +114,22 @@ Message: 6
 Message: 7
 Message: 8
 Message: 9
+
+## Avoiding Excessive Data Buffering
+Writable streams are created with a buffer, in which, data is stored before it is processed.
+
+The buffer is a way to improve performance. It does this by:
+
+Allowing the producer of data to write data to the stream in bursts faster than the stream endpoint can process them
+
+Every time the stream processes a chunk of data, we say it has "flushed" the data.
+
+When all the data in the stream's buffer has been processed, the stream buffer is said to have been "drained".
+
+The amount of data that can be stored in the buffer is known as the high-water mark.
+
+The writable stream will always accept data, even if it has to increase the size of its buffer; however, THIS IS UNDESIRABLE because it increases the demand for memory that can be required for an extended period while the stream flushes the data it currently contains.
+
+Ideally, the approach is to write data to a stream until its buffer is full, THEN, wait until that data is flushed before further data is written to it.
+
+To hel acheive this this goal, the write method returns a bool value, which indicates whether the stream can receive more data w/o expanding its current buffer beyond its target high-water mark...
