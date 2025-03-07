@@ -133,3 +133,15 @@ The writable stream will always accept data, even if it has to increase the size
 Ideally, the approach is to write data to a stream until its buffer is full, THEN, wait until that data is flushed before further data is written to it.
 
 To hel acheive this this goal, the write method returns a bool value, which indicates whether the stream can receive more data w/o expanding its current buffer beyond its target high-water mark...
+
+Writable streams emit the drain event when their buffers have been drained...
+At which point... More data can be written.
+
+In Listing current version of handler.ts, data is
+written to the HTTP response stream until the write method returns
+false and then stops writing until the drain event is received. (If you
+want to know when an individual chunk of data is flushed, then you can pass
+a callback function to the stream’s write method.)
+
+## Reading Data From a Stream
+284
