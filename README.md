@@ -62,4 +62,55 @@ that interfaces with the operating system, in this case, the code that deals wit
 the operating system’s network stack to send and receive data. This indirectrelationship leads to important considerations, as described in the sections that follow."
 
 ## Understanding Stream Enhancements
-Page 275
+
+Some streams are enhanced... Which means that the data you write to a stream will not always be the same data that is received at the other end!
+
+"In the case of HTTP responses, for example, the Node.js HTTP API aids
+development by ensuring that all responses conform to the basic requirements
+of the HTTP protocol, even when the programmer doesn’t explicitly use the
+features provided to set the status code and headers"
+
+When curl --include http://localhost:5000
+We see the Node.js API adds all fields to make it a legal HTTP  req
+This is a helpful feature and helps illustrate the fact that we canno assume that the data we write to a stream will be the same data that arrives at the other end.
+
+Similar thing with ServerResponse...
+
+Before using a stream enhancement method:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Date: Fri, 07 Mar 2025 16:50:38 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Message: 0
+Message: 1
+Message: 2
+Message: 3
+Message: 4
+Message: 5
+Message: 6
+Message: 7
+Message: 8
+Message: 9
+
+After using a stream enhancement method:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/plain
+Date: Fri, 07 Mar 2025 16:47:35 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+
+Message: 0
+Message: 1
+Message: 2
+Message: 3
+Message: 4
+Message: 5
+Message: 6
+Message: 7
+Message: 8
+Message: 9
