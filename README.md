@@ -172,3 +172,5 @@ End: all data read
 The js main thread ensures that the data events are processed sequentially.
 
 ## Reading Data With an Iterator
+Instances of the Readable class can be used as a source of data in a for loop, which can provide a more familiar way to read data from a stream.
+
