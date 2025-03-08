@@ -174,3 +174,10 @@ The js main thread ensures that the data events are processed sequentially.
 ## Reading Data With an Iterator
 Instances of the Readable class can be used as a source of data in a for loop, which can provide a more familiar way to read data from a stream.
 
+## Piping Data to a Writable Stream
+The pipe method is used to connect a Readable stream to a Writeable stream!!
+This ensures that all data is read from readable and written to writable without further intervention.
+
+"This is the simplest way to transfer data between streams, and the end method is called automatically on the Writeable stream once all of the data has been transferred."
+
+The data that is sent in the HTTP request is piped to the HTTP response and displayed in the browser.
