@@ -181,3 +181,6 @@ This ensures that all data is read from readable and written to writable without
 "This is the simplest way to transfer data between streams, and the end method is called automatically on the Writeable stream once all of the data has been transferred."
 
 The data that is sent in the HTTP request is piped to the HTTP response and displayed in the browser.
+
+## Transforming Data
+295
