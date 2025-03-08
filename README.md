@@ -144,4 +144,31 @@ want to know when an individual chunk of data is flushed, then you can pass
 a callback function to the stream’s write method.)
 
 ## Reading Data From a Stream
-The most important source of data in a web app comes from the HTTP req body. Adding html file now
+The most important source of data in a web app comes from the HTTP req body. Adding html file now.
+
+## Understanding the Readable Class
+Readable emitts events for data, end, close, pause, resume, error...
+
+## Reading Data With Events
+Data can be read from the streams using events! in readHandler.ts we see a callback function is used to process data as it becomes available. There we see the data event is emitted when data is available to be read from the stream and is available for processing by the callback fcn used to handle the event.
+
+The data passed to the callback function as a Buffer, which represents an array of unsigned bytes... Unless... the setEncoding method has been used to specify character encoding. In which case, the data is expressed as a string.
+
+In this example, we set the character encoding to UTF-8 so the callback function for the data event will receive string values.. Later these are written to the cli with console.log.
+
+The end event is emitted when all of the data has been read from the stream.
+
+...
+Payload Message: 0
+Payload Message: 1
+Payload Message: 2
+Payload Message: 3
+...
+Payload Message: 9997
+Payload Message: 9998
+Payload Message: 9999
+End: all data read
+
+The js main thread ensures that the data events are processed sequentially.
+
+## Reading Data With an Iterator
