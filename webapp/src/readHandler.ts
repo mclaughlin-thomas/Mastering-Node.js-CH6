@@ -2,10 +2,25 @@ import { IncomingMessage, ServerResponse } from "http";
 import { Transform } from "stream"; 
 
 export const readHandler = async (req: IncomingMessage, resp: ServerResponse) => {
-    req.pipe(createLowerTransform()).pipe(resp);
+    if (req.headers["content-type"] == "application/json") {
+        
+        req.pipe(createFromJsonTransform()).on("data", (payload) => {
+            if (payload instanceof Array) {
+                resp.write(`Received an array with ${payload.length} items`)
+            }
+            else {
+                resp.write("Did not receive an array");
+            }
+        resp.end();
+        });
+    }
+    else {
+        req.pipe(resp);
+    }
 }
-const createLowerTransform = () => new Transform({
+const createFromJsonTransform = () => new Transform({
+    readableObjectMode: true,
     transform(data, encoding, callback) {
-        callback(null, data.toString().toLowerCase());
+        callback(null, JSON.parse(data));
     }
 });

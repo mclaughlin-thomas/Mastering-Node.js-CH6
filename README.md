@@ -193,3 +193,14 @@ function that is used to pass on the transformed data. In this example, the data
 that is received is converted to a string on which the toLowerCase method
 is called. The result is passed to the callback function, whose arguments are
 an object that represents any error that has occurred and the transformed data."
+
+## Using Object Mode
+Streams created by the Node.js API like those we used for HTTP requests or files work only on strings and byte arrays... This is not always convenient though, so, some streams including transformers can use object mode! Object mode allows objects to be read or written.
+
+Updating index.html to send a json request body
+
+Two transform constructor config settings are used to tell Node.js how a transformer will behave: readableObejctMode and writableObjectMode.
+
+If the HTTP req has a Content-Type header that indicates the payload is JSON, then our transformer is used to parse the data.
+
+The parsed payload is checked to see if its an array, and if it is then its length is used to generate our response.
