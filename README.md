@@ -183,4 +183,13 @@ This ensures that all data is read from readable and written to writable without
 The data that is sent in the HTTP request is piped to the HTTP response and displayed in the browser.
 
 ## Transforming Data
-295
+The transform class creates objects known as transformers. These transfromers receive data from a Readable stream, and then they process it in some way, and then pass it on.
+
+Transfromers are applied to streams with the pipe method.
+
+"The function receives three arguments: a chunk of data to
+process, which can be of any data type, a string encoding type, and a callback
+function that is used to pass on the transformed data. In this example, the data
+that is received is converted to a string on which the toLowerCase method
+is called. The result is passed to the callback function, whose arguments are
+an object that represents any error that has occurred and the transformed data."
