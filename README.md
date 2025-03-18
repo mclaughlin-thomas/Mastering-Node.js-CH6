@@ -219,3 +219,4 @@ Middleware components are set up with the use method. server.ts is now modified 
 "http://localhost:5000/client.js , for example, will be handled byreturning the contents of the client.js file in the static folder."
 
 
+## Serving files from client-side packages

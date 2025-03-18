@@ -12,9 +12,12 @@ const expressApp: Express = express();
 // });
 //expressApp.get("*", basicHandler);
 expressApp.post("/read", readHandler);
+//MIDDLEWARE BELOW
 expressApp.use(express.static("static"));
 // the middleware component will attempt to match request URLs
 // to files in the static directory
+expressApp.use(express.static("node_modules/bootstrap/dist"));
+//MIDDLEWARE ABOVE
 const server = createServer(expressApp);
 
 server.listen(port,() =>

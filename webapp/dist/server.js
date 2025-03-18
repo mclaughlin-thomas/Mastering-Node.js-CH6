@@ -15,6 +15,11 @@ const expressApp = (0, express_1.default)();
 // });
 //expressApp.get("*", basicHandler);
 expressApp.post("/read", readHandler_1.readHandler);
+//MIDDLEWARE BELOW
 expressApp.use(express_1.default.static("static"));
+// the middleware component will attempt to match request URLs
+// to files in the static directory
+expressApp.use(express_1.default.static("node_modules/bootstrap/dist"));
+//MIDDLEWARE ABOVE
 const server = (0, http_1.createServer)(expressApp);
 server.listen(port, () => console.log(`HTTP Server listening on port ${port}`));
