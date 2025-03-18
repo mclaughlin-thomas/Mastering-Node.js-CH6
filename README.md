@@ -204,3 +204,18 @@ Two transform constructor config settings are used to tell Node.js how a transfo
 If the HTTP req has a Content-Type header that indicates the payload is JSON, then our transformer is used to parse the data.
 
 The parsed payload is checked to see if its an array, and if it is then its length is used to generate our response.
+
+## Using Third-Party Enhancements
+The following sections describe usefull enhancements provided by the Express package to deal with streams and tasks that are related to HTTP.
+
+## Working With Files
+Node.js provides a good API to deal with files in the fs module. It has support for reading and writing streams as well as convenient featurees that read or write complete files like the readFileSync function.
+
+creating client.js
+^ Same code as contained in .html just moving it to here now.
+
+Middleware components are set up with the use method. server.ts is now modified to serve files.
+
+"http://localhost:5000/client.js , for example, will be handled byreturning the contents of the client.js file in the static folder."
+
+
