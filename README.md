@@ -236,3 +236,28 @@ the download method sets the Content-Disposition response headerm which cuases m
 "http://localhost:5000/sendcity and
 http://localhost:5000/downloadcity .
 The first URL will cause the browser to display the image in the browser window. The second URL will prompt the user to save the file."
+
+## Automatically Decoding and Encoding JSON
+Express packages comes with a middleware comopnent that can decode JSON response bodies automagically!
+
+enabling json middleware in server.ts
+
+the middleware component has to be registered before the routes here that read response bodies so that JSON reqs are parsed before they are matched to their appropriate handler!
+
+## Summary
+
+In this section we primarily covered the API features Node.js has that allows ut to read and write data.
+
+"Streams are used as abstract representations of sources and destinations for data, including HTTP requests and responses.
+
+Data is buffered when it is written to a stream, but it is a good idea to avoid excessive buffering because it can exhaust system resources.
+
+Data can be read from a stream by handling events or using a for loop.
+
+Data can be piped from a readable stream to a writable stream.
+
+Data can be transformed as it is piped and can be between JavaScriptobjects and strings/byte arrays.
+
+Node.js provides an API to work with files, but third-party packages are the safest way to work with files in a web server project.
+
+Third-party packages, such as Express, provide enhancements to the Node.js streams to perform common tasks, such as decoding JSON data."

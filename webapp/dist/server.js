@@ -8,6 +8,7 @@ const express_1 = __importDefault(require("express"));
 const readHandler_1 = require("./readHandler");
 const port = 5000;
 const expressApp = (0, express_1.default)();
+expressApp.use(express_1.default.json()); // MIDDLEWARE FOR JSON
 expressApp.post("/read", readHandler_1.readHandler);
 expressApp.get("/sendcity", (req, resp) => {
     resp.sendFile("city.png", { root: "static" });
