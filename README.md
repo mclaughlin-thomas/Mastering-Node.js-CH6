@@ -220,3 +220,19 @@ Middleware components are set up with the use method. server.ts is now modified 
 
 
 ## Serving files from client-side packages
+
+
+## Sending and Downloading Files
+The Response class, through Express provides ServerResponse, defines methods to deal with files: sendFile(path, config) and download(path)
+
+The sendFile and download methods are useful because they provide solutions to problems that cannot be solved using the static middleware.
+
+Adding new routes in the server.ts file
+
+the sendFile method is good when you need to respond with the content of a file, but the request path does not contain the filename. The args are the name of the ifle and a config object, whose root property specifies the directory that contains the file.
+
+the download method sets the Content-Disposition response headerm which cuases most browsers to treat the file contents as a download that should be saved.
+
+"http://localhost:5000/sendcity and
+http://localhost:5000/downloadcity .
+The first URL will cause the browser to display the image in the browser window. The second URL will prompt the user to save the file."
