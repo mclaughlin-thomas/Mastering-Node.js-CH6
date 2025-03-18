@@ -13,6 +13,8 @@ const expressApp: Express = express();
 //expressApp.get("*", basicHandler);
 expressApp.post("/read", readHandler);
 expressApp.use(express.static("static"));
+// the middleware component will attempt to match request URLs
+// to files in the static directory
 const server = createServer(expressApp);
 
 server.listen(port,() =>
